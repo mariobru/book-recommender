@@ -1,0 +1,10 @@
+https://www.kaggle.com/jealousleopard/goodreadsbooks
+
+https://openlibrary.org/dev/docs/api/books
+
+
+curl 'https://openlibrary.org/api/books?bibkeys=ISBN:9782228894692&jscmd=details&format=json'
+
+curl 'https://openlibrary.org/api/books?bibkeys=ISBN:9782228894692&jscmd=data&format=json'
+
+
