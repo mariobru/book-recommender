@@ -1,10 +1,10 @@
-def githubRequestAuthorized(isbn):
+# Importing Libraries
+import os
+from dotenv import load_dotenv
+import requests
+load_dotenv()
 
-    # Importing Libraries
-    import os
-    from dotenv import load_dotenv
-    import requests
-    load_dotenv()
+def githubRequestAuthorized(isbn):
 
     # Function
     authToken = os.getenv("GOOGLE_BOOKS_API_TOKEN")

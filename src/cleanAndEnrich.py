@@ -1,9 +1,7 @@
+import pandas as pd
+import githubRequestAuthorized
+
 def cleanAndEnrich(inputPath):
-    # Importing libraries
-
-    import pandas as pd
-
-    from githubRequestAuthorized import githubRequestAuthorized
 
     # Loading environment variables
 
