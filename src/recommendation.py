@@ -1,6 +1,8 @@
+import pandas as pd
+
 def recommendation(genre):
         
-    df = pd.read_csv('../input/booksWithGenre.csv', index_col=0)
+    df = pd.read_csv('./input/booksWithGenre.csv', index_col=0)
 
     selection = df.loc[df['Genre'] == genre].sort_values(['average_rating'], ascending=[False]).head(10)
 

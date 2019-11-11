@@ -1,24 +1,32 @@
 #!/usr/bin/env python3 
 
-from src.inputArgs import inputArgs
-from src.cleanAndEnrich import cleanAndEnrich
-from src.printGenres import printGenres
-from src.githubRequestAuthorized import githubRequestAuthorized
+import src.inputArgs as ia
+import src.cleanAndEnrich as ce
+import src.printGenres as pg
+import src.recommendation as rc
 
 def main():
 
-    args = inputArgs()
+    args = ia.inputArgs()
 
     print(args)
 
     if args.api:
 
-        input = input('Please insert the path where your books dataset CSV file is stored: ')
+        path = input('Please insert the path where your books dataset CSV file is stored: ')
         
-        src.cleanAndEnrich(input)
+        ce.cleanAndEnrich(path)
 
     if args.genres:
-        src.printGenres()
+
+        path = input('Please insert the path where your books dataset CSV file with genres info is stored: ')
+        pg.printGenres(path)
+
+    if args.recommend:
+
+        genre = input('Please insert a genre from the list above: ')
+        rc.recommendation(genre)
+
 
 
 
