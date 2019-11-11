@@ -7,7 +7,8 @@ load_dotenv()
 
 def githubRequestAuthorized(isbn):
 
-    # Function
+    # Fuction to get the JSON from Google API validating with a token stored in .env file:
+
     authToken = os.getenv("GOOGLE_BOOKS_API_TOKEN")
     if not authToken:
         raise ValueError("NECESITAS UN TOKEN")
@@ -17,26 +18,32 @@ def githubRequestAuthorized(isbn):
     data = res.json()
     return data
 
-def cleanAndEnrich(inputPath):
-
-    # Loading environment variables
 
 
-    df = pd.read_csv(inputPath, error_bad_lines=False)
+# Cleaning and enriching the DF from Google Books API starts here:
 
-    df = df.drop(['bookID','isbn','language_code','text_reviews_count','ratings_count','Unnamed: 10','Unnamed: 11','Unnamed: 12'], axis=1)
-    df = df.rename(columns = {'# num_pages':'num_pages'})
+# First I open the dataset I downloaded from Kaggle.com:
+df = pd.read_csv("../input/books.csv", error_bad_lines=False)
 
-    
-    for i in range(len(df)) : 
-        isbn = df.loc[i, "isbn13"]
-        book = githubRequestAuthorized(isbn)
-        try:
-            df.loc[i, 'Genre'] = book['items'][0]['volumeInfo']['categories'][0]
-            
-        except:
-            df.loc[i, 'Genre'] = 'Others'
-            
+# Then I clean the columns that are not useful for my purpose:
 
-    df.to_csv('../input/booksWithGenre.csv')
+df = df.drop(['bookID','isbn','language_code','text_reviews_count','ratings_count','Unnamed: 10','Unnamed: 11'], axis=1)
+df = df.rename(columns = {'# num_pages':'num_pages'})
+
+# Here I am going create a "Genre" column and ask the Google Books API for the genre of each book using its ISBN13:
+
+for i in range(len(df)) : 
+    isbn = df.loc[i, "isbn13"]
+    book = githubRequestAuthorized(isbn)
+    try:
+        df.loc[i, 'Genre'] = book['items'][0]['volumeInfo']['categories'][0]
+        
+    except:
+        df.loc[i, 'Genre'] = 'Others'
+        
+# Last but not least, I will save the dataset cleaned and enriched with new data in the input directory:
+
+df.to_csv('../input/booksWithGenre.csv')
+
+
 
