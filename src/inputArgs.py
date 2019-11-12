@@ -1,6 +1,4 @@
-import sys
 import argparse
-import subprocess
 
 def inputArgs():
     parser = argparse.ArgumentParser(description='This is a books recommender. You can get a list of the genres availables with "--genres" parameter. Then, choose one of them typing "--recommend" and get the top 10 books of that genre ordered by rating.')                 # analizador de argumentos
