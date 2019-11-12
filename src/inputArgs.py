@@ -5,6 +5,6 @@ def inputArgs():
     grupo = parser.add_mutually_exclusive_group()      # grupo mutuamente excluyente (solo una operacion)
 
     grupo.add_argument('-g', '--genres', help='Print a list of genres.', action='store_true')
-    grupo.add_argument('-r', '--recommend', help='Insert a genre and the application will return you a list of 10 books of that genre ordered by rating.', action='store_true')	
+    grupo.add_argument('-r', '--recommend', help='Returns an input box, where you can insert a genre from the previous list. The application will return you a list of 10 books of that genre ordered by rating.', action='store_true')	
 
     return parser.parse_args()

@@ -25,14 +25,16 @@ Ref2: https://developers.google.com/books/docs/v1/using
 2- Run `./main.py --help`
 
 
-    `optional arguments:`
+    optional arguments:
 
-    `-h, --help       show this help message and exit`
+    -h, --help       show this help message and exit
 
-    `-g, --genres     Print a list of genres.`
+    -g, --genres     Print a list of genres.
 
-    `-r, --recommend  Insert a genre and the application will return you a list
-                    of 10 books of that genre ordered by rating.`
+    -r, --recommend  Returns an input box, where you can insert a genre
+                   from the previous list. The application will return you a
+                   list of 10 books of that genre ordered by rating.
+
 
 3- You can only choose one option at the same time, so pick first `--genres`. It will prompt a list of genres and the number of titles that the dataset has for each genre.
 
