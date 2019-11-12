@@ -12,7 +12,7 @@ Ref2: https://developers.google.com/books/docs/v1/using
 
 - The original dataset contains information like "Title", "Author", "ISBN", "Rating", "Number of pages", etc.
 
-- Using the ISBN I can obtain a JSON from Google Books API which contains the genre of the book. With a loop, I have added these values to a new "genre" column in the dataframe. For this step, You need to register a project in Google API and create an auth token. My token is saved in my ".env" directory (not present in GitHub for obvious reasons). You can check `cleanAndEnrich.py` to see how I did it.
+- Using the ISBN I can obtain a JSON from Google Books API which contains the genre of the book. With a loop, I have added these values to a new "genre" column in the dataframe. For this step, you need to register a project in Google API and create an auth token. My token is saved in my ".env" directory (not present in GitHub for obvious reasons). You can check `cleanAndEnrich.py` to see how I did it.
 
 - Then I clean and order this new dataset so I can group by genre.
 
